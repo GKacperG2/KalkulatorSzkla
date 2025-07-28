@@ -8,6 +8,7 @@ import 'dart:async';
 import 'package:intl/intl.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
+import 'package:excel/excel.dart';
 
 void main() {
   runApp(const MyApp());
@@ -182,6 +183,12 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
 
   double _tableScale = 1.0;
 
+  // Nawigacja klawiaturą - śledzenie aktualnej pozycji
+  int _currentRow = 0;
+  int _currentColumn = 0; // 0: grubość, 1: długość, 2: szerokość, 3: ilość
+  final Map<String, FocusNode> _focusNodes = {};
+  final Map<String, TextEditingController> _controllers = {};
+
   @override
   void initState() {
     super.initState();
@@ -300,6 +307,15 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
     _autoSaveTimer?.cancel();
     _saveCurrentProject();
     _tabController.dispose();
+    
+    // Zwolnij kontrolery i focus nodes
+    for (final controller in _controllers.values) {
+      controller.dispose();
+    }
+    for (final focusNode in _focusNodes.values) {
+      focusNode.dispose();
+    }
+    
     super.dispose();
   }
 
@@ -443,8 +459,17 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
   }
 
   Widget _buildMainTab() {
-    return Column(
-      children: [
+    return Focus(
+      autofocus: true,
+      onKeyEvent: (FocusNode node, KeyEvent event) {
+        if (event is KeyDownEvent && event.logicalKey == LogicalKeyboardKey.space) {
+          _addItem();
+          return KeyEventResult.handled;
+        }
+        return KeyEventResult.ignored;
+      },
+      child: Column(
+        children: [
         Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -490,6 +515,16 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
                 },
               ),
               ElevatedButton.icon(
+                onPressed: _generateExcel,
+                icon: const Icon(Icons.table_chart, color: Colors.white),
+                label: const Text('Eksportuj do Excel', style: TextStyle(color: Colors.white)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  elevation: 0,
+                ),
+              ),
+              const SizedBox(width: 12),
+              ElevatedButton.icon(
                 onPressed: _generatePDF,
                 icon: const Icon(Icons.save, color: Colors.white),
                 label: const Text('Zapisz PDF', style: TextStyle(color: Colors.white)),
@@ -534,19 +569,19 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
                         DataCell(_buildEditableCell(item.thickness.toString(), (value) {
                           item.thickness = int.tryParse(value) ?? 0;
                           _updateItem(index, item);
-                        })),
+                        }, index, 0)),
                         DataCell(_buildEditableCell(item.length.toString(), (value) {
                           item.length = int.tryParse(value) ?? 0;
                           _updateItem(index, item);
-                        })),
+                        }, index, 1)),
                         DataCell(_buildEditableCell(item.width.toString(), (value) {
                           item.width = int.tryParse(value) ?? 0;
                           _updateItem(index, item);
-                        })),
+                        }, index, 2)),
                         DataCell(_buildEditableCell(item.quantity.toString(), (value) {
                           item.quantity = int.tryParse(value) ?? 1;
                           _updateItem(index, item);
-                        })),
+                        }, index, 3)),
                         DataCell(Text(item.m2PerPiece.toStringAsFixed(3))),
                         DataCell(Text(item.totalM2.toStringAsFixed(3))),
                         DataCell(Text(item.weight.toStringAsFixed(2))),
@@ -578,6 +613,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
           ),
         ),
       ],
+      ),
     );
   }
 
@@ -607,19 +643,66 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
     }
   }
 
-  Widget _buildEditableCell(String value, Function(String) onChanged) {
-    final controller = TextEditingController(text: value);
-    controller.selection = TextSelection.collapsed(offset: value.length);
-    return TextField(
-      controller: controller,
-      keyboardType: TextInputType.number,
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-      onChanged: onChanged,
-      decoration: const InputDecoration(
-        border: InputBorder.none,
-        contentPadding: EdgeInsets.symmetric(horizontal: 8),
+  Widget _buildEditableCell(String value, Function(String) onChanged, int row, int column) {
+    final String cellKey = '${row}_$column';
+    
+    // Utwórz lub pobierz kontroler dla tej komórki
+    if (!_controllers.containsKey(cellKey)) {
+      _controllers[cellKey] = TextEditingController(text: value);
+      _focusNodes[cellKey] = FocusNode();
+    } else {
+      _controllers[cellKey]!.text = value;
+    }
+    
+    _controllers[cellKey]!.selection = TextSelection.collapsed(offset: value.length);
+    
+    return RawKeyboardListener(
+      focusNode: FocusNode(),
+      onKey: (RawKeyEvent event) {
+        if (event is RawKeyDownEvent) {
+          // Usunięto obsługę klawisza space z tej lokalizacji
+          // bo jest już obsługiwana globalnie w Focus widget
+          
+          if (event.logicalKey == LogicalKeyboardKey.arrowUp) {
+            _moveToCell(row - 1, column);
+          } else if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
+            _moveToCell(row + 1, column);
+          } else if (event.logicalKey == LogicalKeyboardKey.arrowLeft) {
+            _moveToCell(row, column - 1);
+          } else if (event.logicalKey == LogicalKeyboardKey.arrowRight) {
+            _moveToCell(row, column + 1);
+          }
+        }
+      },
+      child: TextField(
+        controller: _controllers[cellKey],
+        focusNode: _focusNodes[cellKey],
+        keyboardType: TextInputType.number,
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        onChanged: onChanged,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.symmetric(horizontal: 8),
+        ),
       ),
     );
+  }
+
+  void _moveToCell(int row, int column) {
+    // Sprawdź granice
+    if (row < 0 || row >= items.length || column < 0 || column > 3) {
+      return;
+    }
+    
+    setState(() {
+      _currentRow = row;
+      _currentColumn = column;
+    });
+    
+    final String cellKey = '${row}_$column';
+    if (_focusNodes.containsKey(cellKey)) {
+      _focusNodes[cellKey]!.requestFocus();
+    }
   }
 
   Widget _buildSummaryTab() {
@@ -785,6 +868,290 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         ],
       ),
     );
+  }
+
+  Future<void> _generateExcel() async {
+    try {
+      // Tworzymy nowy workbook
+      final excel = Excel.createExcel();
+      final Sheet sheet = excel['Arkusz1'];
+
+      // Ustawiamy wysokość pierwszych wierszy
+      sheet.setRowHeight(0, 20);
+      sheet.setRowHeight(1, 20);
+      sheet.setRowHeight(2, 20);
+      sheet.setRowHeight(3, 20);
+      sheet.setRowHeight(4, 20);
+      sheet.setRowHeight(5, 20);
+      sheet.setRowHeight(6, 20);
+
+      // NAGŁÓWEK - ROW 0-6
+      // Dane sprzedawcy (kolumny A-C)
+      sheet.cell(CellIndex.indexByString('A1')).value = TextCellValue('Różycki GLASS');
+      sheet.cell(CellIndex.indexByString('A2')).value = TextCellValue('Grzegorz Różycki');
+      sheet.cell(CellIndex.indexByString('A3')).value = TextCellValue('Stare Miasto 515');
+      sheet.cell(CellIndex.indexByString('A4')).value = TextCellValue('37-300 Leżajsk');
+      sheet.cell(CellIndex.indexByString('A5')).value = TextCellValue('tel. 604 595 378');
+
+      // Dane klienta (kolumny D-E)
+      sheet.cell(CellIndex.indexByString('D1')).value = TextCellValue('HARTOWNIA');
+      sheet.cell(CellIndex.indexByString('D2')).value = TextCellValue('SZKŁA ul.');
+      sheet.cell(CellIndex.indexByString('D3')).value = TextCellValue('Budowlana 2');
+      sheet.cell(CellIndex.indexByString('D4')).value = TextCellValue('08-500 Ryki');
+      sheet.cell(CellIndex.indexByString('D6')).value = TextCellValue(companyData.clientName);
+
+      // Dane dokumentu (kolumny F-I)
+      sheet.cell(CellIndex.indexByString('H1')).value = TextCellValue('Numer bieżący');
+      sheet.cell(CellIndex.indexByString('H2')).value = TextCellValue('Data wystawienia');
+      sheet.cell(CellIndex.indexByString('I1')).value = TextCellValue(companyData.currentNumber);
+      sheet.cell(CellIndex.indexByString('I2')).value = TextCellValue(companyData.issueDate);
+
+      // WZ
+      sheet.cell(CellIndex.indexByString('G1')).value = TextCellValue('WZ');
+      sheet.cell(CellIndex.indexByString('G3')).value = TextCellValue('wydanie');
+      sheet.cell(CellIndex.indexByString('G4')).value = TextCellValue('zewnętrzne');
+
+      // Wiersz 8 - Opis usługi
+      sheet.cell(CellIndex.indexByString('A8')).value = TextCellValue('Różycki glass - usługa ${companyData.serviceType.toLowerCase()}');
+
+      // TABELA GŁÓWNA - zaczynamy od wiersza 10
+      final int headerRow = 9; // wiersz 10 w Excelu (0-based)
+      
+      // Nagłówki tabeli
+      sheet.cell(CellIndex.indexByString('A${headerRow + 1}')).value = TextCellValue('Lp');
+      sheet.cell(CellIndex.indexByString('B${headerRow + 1}')).value = TextCellValue('Grubość');
+      sheet.cell(CellIndex.indexByString('C${headerRow + 1}')).value = TextCellValue('Długość');
+      sheet.cell(CellIndex.indexByString('D${headerRow + 1}')).value = TextCellValue('Szerokość');
+      sheet.cell(CellIndex.indexByString('E${headerRow + 1}')).value = TextCellValue('Ilość');
+      sheet.cell(CellIndex.indexByString('F${headerRow + 1}')).value = TextCellValue('m²/szt');
+      sheet.cell(CellIndex.indexByString('G${headerRow + 1}')).value = TextCellValue('m²');
+      sheet.cell(CellIndex.indexByString('H${headerRow + 1}')).value = TextCellValue('waga [kg]');
+
+      // Dane tabeli
+      for (int i = 0; i < items.length; i++) {
+        final int row = headerRow + 2 + i; // wiersz danych
+        final item = items[i];
+        
+        sheet.cell(CellIndex.indexByString('A$row')).value = IntCellValue(i + 1);
+        sheet.cell(CellIndex.indexByString('B$row')).value = IntCellValue(item.thickness);
+        sheet.cell(CellIndex.indexByString('C$row')).value = IntCellValue(item.length);
+        sheet.cell(CellIndex.indexByString('D$row')).value = IntCellValue(item.width);
+        sheet.cell(CellIndex.indexByString('E$row')).value = IntCellValue(item.quantity);
+        // Ograniczenie do maksymalnie 3 miejsc po przecinku
+        sheet.cell(CellIndex.indexByString('F$row')).value = DoubleCellValue(double.parse(item.m2PerPiece.toStringAsFixed(3)));
+        sheet.cell(CellIndex.indexByString('G$row')).value = DoubleCellValue(double.parse(item.totalM2.toStringAsFixed(3)));
+        sheet.cell(CellIndex.indexByString('H$row')).value = DoubleCellValue(double.parse(item.weight.toStringAsFixed(3)));
+      }
+
+      // Wiersz podsumowania
+      final int summaryRow = headerRow + 2 + items.length;
+      final totalQty = items.fold<int>(0, (sum, item) => sum + item.quantity);
+      final totalM2 = _getTotalM2();
+      final totalWeight = _getTotalWeight();
+
+      sheet.cell(CellIndex.indexByString('D$summaryRow')).value = TextCellValue('SUMA:');
+      sheet.cell(CellIndex.indexByString('E$summaryRow')).value = IntCellValue(totalQty);
+      // Ograniczenie do maksymalnie 3 miejsc po przecinku w podsumowaniu
+      sheet.cell(CellIndex.indexByString('G$summaryRow')).value = DoubleCellValue(double.parse(totalM2.toStringAsFixed(3)));
+      sheet.cell(CellIndex.indexByString('H$summaryRow')).value = DoubleCellValue(double.parse(totalWeight.toStringAsFixed(3)));
+
+      // Formatowanie - pogrubienia dla nagłówków
+      final boldStyle = CellStyle(
+        fontFamily: getFontFamily(FontFamily.Arial),
+        bold: true,
+      );
+
+      // STYLIZACJA ARKUSZA
+      _formatExcelSheet(sheet, headerRow, items.length, boldStyle);
+
+      // Pogrub nagłówki tabeli
+      for (int col = 0; col < 8; col++) {
+        final cellAddress = String.fromCharCode(65 + col) + '${headerRow + 1}';
+        sheet.cell(CellIndex.indexByString(cellAddress)).cellStyle = boldStyle;
+      }
+
+      // Pogrub wiersz podsumowania
+      sheet.cell(CellIndex.indexByString('D$summaryRow')).cellStyle = boldStyle;
+      sheet.cell(CellIndex.indexByString('E$summaryRow')).cellStyle = boldStyle;
+      sheet.cell(CellIndex.indexByString('G$summaryRow')).cellStyle = boldStyle;
+      sheet.cell(CellIndex.indexByString('H$summaryRow')).cellStyle = boldStyle;
+
+      // Pogrub dane firmy
+      sheet.cell(CellIndex.indexByString('A1')).cellStyle = boldStyle;
+      sheet.cell(CellIndex.indexByString('A2')).cellStyle = boldStyle;
+
+      // Zapisywanie pliku
+      // Używamy tej samej logiki nazwy i ścieżki co w PDF
+      String client = (companyData.clientName.isNotEmpty ? companyData.clientName : "Firma")
+          .replaceAll(RegExp(r'[\\/:*?"<>|\r\n\t]'), '_')
+          .replaceAll(RegExp(r'\s+'), ' ')
+          .trim();
+      String date = companyData.issueDate
+          .replaceAll(RegExp(r'[\\/:*?"<>|\r\n\t]'), '_')
+          .replaceAll(RegExp(r'\s+'), ' ')
+          .trim();
+      String fileName = "$client-$date-excel.xlsx";
+
+      // Używamy tej samej ścieżki co PDF
+      String savePath = pdfSavePath.isNotEmpty
+          ? pdfSavePath
+          : (await getDefaultSavePath());
+
+      // Upewnij się, że ścieżka istnieje
+      final dir = Directory(savePath);
+      if (!await dir.exists()) {
+        await dir.create(recursive: true);
+      }
+
+      final file = File('$savePath/$fileName');
+      
+      final bytes = excel.encode();
+      if (bytes != null) {
+        await file.writeAsBytes(bytes);
+        
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Plik Excel zapisany: $savePath/$fileName'),
+              duration: const Duration(seconds: 5),
+              action: SnackBarAction(
+                label: 'OK',
+                onPressed: () {},
+              ),
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Błąd podczas tworzenia pliku Excel: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  void _formatExcelSheet(Sheet sheet, int headerRow, int itemsCount, CellStyle boldStyle) {
+    // 1. SEKCJA NAGŁÓWKA GŁÓWNEGO (Wiersze 1-4)
+    
+    // Dane Sprzedawcy (Lewa strona, Kolumny A-C)
+    sheet.merge(CellIndex.indexByString('A1'), CellIndex.indexByString('C1'));
+    sheet.merge(CellIndex.indexByString('A2'), CellIndex.indexByString('C2'));
+    sheet.merge(CellIndex.indexByString('A3'), CellIndex.indexByString('C3'));
+    sheet.merge(CellIndex.indexByString('A4'), CellIndex.indexByString('C4'));
+    
+    // Stylizacja danych sprzedawcy - pogrubienie
+    sheet.cell(CellIndex.indexByString('A1')).cellStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      bold: true,
+    );
+    sheet.cell(CellIndex.indexByString('A2')).cellStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      bold: true,
+    );
+    
+    // Dane Klienta (Środek, Kolumny E-F)
+    sheet.merge(CellIndex.indexByString('E2'), CellIndex.indexByString('F2'));
+    sheet.merge(CellIndex.indexByString('E3'), CellIndex.indexByString('F3'));
+
+    // 2. GŁÓWNY TYTUŁ TABELI (Wiersz 8)
+    final titleRowIndex = 8; // wiersz 8 (1-based)
+    sheet.merge(CellIndex.indexByString('A$titleRowIndex'), CellIndex.indexByString('H$titleRowIndex'));
+    
+    final titleStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      bold: true,
+      backgroundColorHex: ExcelColor.fromHexString('#F2F2F2'),
+      horizontalAlign: HorizontalAlign.Center,
+      verticalAlign: VerticalAlign.Center,
+    );
+    
+    sheet.cell(CellIndex.indexByString('A$titleRowIndex')).cellStyle = titleStyle;
+
+    // 3. NAGŁÓWKI KOLUMN TABELI (Wiersz headerRow + 1)
+    final headerStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      bold: true,
+      backgroundColorHex: ExcelColor.fromHexString('#D9D9D9'),
+      horizontalAlign: HorizontalAlign.Center,
+      verticalAlign: VerticalAlign.Center,
+    );
+    
+    // Zastosuj style do nagłówków kolumn
+    for (int col = 0; col < 8; col++) {
+      final cellAddress = String.fromCharCode(65 + col) + '${headerRow + 1}';
+      sheet.cell(CellIndex.indexByString(cellAddress)).cellStyle = headerStyle;
+    }
+
+    // 4. WIERSZE Z DANYMI (od wiersza headerRow + 2)
+    final dataCenterStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      horizontalAlign: HorizontalAlign.Center,
+      verticalAlign: VerticalAlign.Center,
+    );
+    
+    final dataRightStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      horizontalAlign: HorizontalAlign.Right,
+      verticalAlign: VerticalAlign.Center,
+    );
+    
+    // Stylizacja wierszy z danymi
+    for (int i = 0; i < itemsCount; i++) {
+      final int row = headerRow + 2 + i;
+      
+      // Kolumny A-E (Lp, Grubość, Długość, Szerokość, Ilość) - na środek
+      for (int col = 0; col < 5; col++) {
+        final cellAddress = String.fromCharCode(65 + col) + '$row';
+        sheet.cell(CellIndex.indexByString(cellAddress)).cellStyle = dataCenterStyle;
+      }
+      
+      // Kolumny F-H (m²/szt, m², waga) - do prawej
+      for (int col = 5; col < 8; col++) {
+        final cellAddress = String.fromCharCode(65 + col) + '$row';
+        sheet.cell(CellIndex.indexByString(cellAddress)).cellStyle = dataRightStyle;
+      }
+    }
+
+    // 5. WIERSZ PODSUMOWANIA (Ostatni wiersz tabeli)
+    final summaryRow = headerRow + 2 + itemsCount;
+    
+    // Scal komórki A-D w wierszu podsumowania
+    sheet.merge(CellIndex.indexByString('A$summaryRow'), CellIndex.indexByString('D$summaryRow'));
+    
+    final summaryMergedStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      horizontalAlign: HorizontalAlign.Center,
+      verticalAlign: VerticalAlign.Center,
+    );
+    
+    sheet.cell(CellIndex.indexByString('A$summaryRow')).cellStyle = summaryMergedStyle;
+    
+    // Style dla komórek sum (E, G, H)
+    final summaryStyle = CellStyle(
+      fontFamily: getFontFamily(FontFamily.Arial),
+      bold: true,
+      backgroundColorHex: ExcelColor.fromHexString('#E2EFDA'),
+      horizontalAlign: HorizontalAlign.Right,
+      verticalAlign: VerticalAlign.Center,
+    );
+    
+    sheet.cell(CellIndex.indexByString('E$summaryRow')).cellStyle = summaryStyle; // Ilość
+    sheet.cell(CellIndex.indexByString('G$summaryRow')).cellStyle = summaryStyle; // m²
+    sheet.cell(CellIndex.indexByString('H$summaryRow')).cellStyle = summaryStyle; // waga
+
+    // 6. SZEROKOŚĆ KOLUMN
+    sheet.setColumnWidth(0, 5);   // Kolumna A (Lp)
+    sheet.setColumnWidth(1, 10);  // Kolumna B (Grubość)
+    sheet.setColumnWidth(2, 12);  // Kolumna C (Długość)
+    sheet.setColumnWidth(3, 12);  // Kolumna D (Szerokość)
+    sheet.setColumnWidth(4, 8);   // Kolumna E (Ilość)
+    sheet.setColumnWidth(5, 15);  // Kolumna F (m²/szt)
+    sheet.setColumnWidth(6, 15);  // Kolumna G (m²)
+    sheet.setColumnWidth(7, 15);  // Kolumna H (waga [kg])
   }
 
   Future<void> _generatePDF() async {
