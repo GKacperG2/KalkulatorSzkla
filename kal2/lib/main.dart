@@ -90,6 +90,19 @@ class CompanyData {
   String serviceType = 'Hartowanie szkła';
   String currentNumber = DateFormat('dd-MM-yyyy').format(DateTime.now());
   String issueDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
+  
+  // Dane sprzedawcy (Twojej firmy)
+  String sellerName = 'Różycki GLASS';
+  String sellerOwner = 'Grzegorz Różycki';
+  String sellerAddress = 'Stare Miasto 515';
+  String sellerCity = '37-300 Leżajsk';
+  String sellerPhone = 'tel. 604 595 378';
+  
+  // Dane odbiorcy (klienta)
+  String clientCompany = 'HARTOWNIA';
+  String clientStreet = 'SZKŁA ul.';
+  String clientStreetName = 'Budowlana 2';
+  String clientCityCode = '08-500 Ryki';
 
   CompanyData();
 
@@ -100,6 +113,15 @@ class CompanyData {
     'serviceType': serviceType,
     'currentNumber': currentNumber,
     'issueDate': issueDate,
+    'sellerName': sellerName,
+    'sellerOwner': sellerOwner,
+    'sellerAddress': sellerAddress,
+    'sellerCity': sellerCity,
+    'sellerPhone': sellerPhone,
+    'clientCompany': clientCompany,
+    'clientStreet': clientStreet,
+    'clientStreetName': clientStreetName,
+    'clientCityCode': clientCityCode,
   };
 
   factory CompanyData.fromJson(Map<String, dynamic> json) {
@@ -110,6 +132,15 @@ class CompanyData {
     data.serviceType = json['serviceType'] ?? 'Hartowanie szkła';
     data.currentNumber = json['currentNumber'] ?? DateFormat('dd-MM-yyyy').format(DateTime.now());
     data.issueDate = json['issueDate'] ?? DateFormat('dd-MM-yyyy').format(DateTime.now());
+    data.sellerName = json['sellerName'] ?? 'Różycki GLASS';
+    data.sellerOwner = json['sellerOwner'] ?? 'Grzegorz Różycki';
+    data.sellerAddress = json['sellerAddress'] ?? 'Stare Miasto 515';
+    data.sellerCity = json['sellerCity'] ?? '37-300 Leżajsk';
+    data.sellerPhone = json['sellerPhone'] ?? 'tel. 604 595 378';
+    data.clientCompany = json['clientCompany'] ?? 'HARTOWNIA';
+    data.clientStreet = json['clientStreet'] ?? 'SZKŁA ul.';
+    data.clientStreetName = json['clientStreetName'] ?? 'Budowlana 2';
+    data.clientCityCode = json['clientCityCode'] ?? '08-500 Ryki';
     return data;
   }
 }
@@ -804,11 +835,126 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         children: [
           const Text('Dane firmy', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
-          // Usunięto pole "Nazwa Twojej firmy"
+          
+          // SEKCJA SPRZEDAWCY
+          const Text('Dane sprzedawcy (Twoja firma):', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          TextField(
+            controller: TextEditingController(text: companyData.sellerName),
+            decoration: const InputDecoration(
+              labelText: 'Nazwa firmy',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.sellerName = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: TextEditingController(text: companyData.sellerOwner),
+            decoration: const InputDecoration(
+              labelText: 'Właściciel',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.sellerOwner = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: TextEditingController(text: companyData.sellerAddress),
+            decoration: const InputDecoration(
+              labelText: 'Adres',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.sellerAddress = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: TextEditingController(text: companyData.sellerCity),
+            decoration: const InputDecoration(
+              labelText: 'Miasto',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.sellerCity = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: TextEditingController(text: companyData.sellerPhone),
+            decoration: const InputDecoration(
+              labelText: 'Telefon',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.sellerPhone = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 24),
+          
+          // SEKCJA KLIENTA
+          const Text('Dane klienta (odbiorca):', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          TextField(
+            controller: TextEditingController(text: companyData.clientCompany),
+            decoration: const InputDecoration(
+              labelText: 'Nazwa firmy klienta',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.clientCompany = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: TextEditingController(text: companyData.clientStreet),
+            decoration: const InputDecoration(
+              labelText: 'Ulica (opis)',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.clientStreet = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: TextEditingController(text: companyData.clientStreetName),
+            decoration: const InputDecoration(
+              labelText: 'Nazwa ulicy i numer',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.clientStreetName = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: TextEditingController(text: companyData.clientCityCode),
+            decoration: const InputDecoration(
+              labelText: 'Kod pocztowy i miasto',
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {
+              companyData.clientCityCode = value;
+              _saveCurrentProject();
+            },
+          ),
+          const SizedBox(height: 16),
           TextField(
             controller: TextEditingController(text: companyData.clientName),
             decoration: const InputDecoration(
-              labelText: 'Firma klienta',
+              labelText: 'Dodatkowa nazwa klienta',
               border: OutlineInputBorder(),
             ),
             onChanged: (value) {
@@ -816,7 +962,11 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
               _saveCurrentProject();
             },
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
+          
+          // SEKCJA POZOSTAŁYCH DANYCH
+          const Text('Pozostałe dane:', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
           TextField(
             controller: TextEditingController(text: companyData.serviceType),
             decoration: const InputDecoration(
@@ -886,18 +1036,18 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
       sheet.setRowHeight(6, 20);
 
       // NAGŁÓWEK - ROW 0-6
-      // Dane sprzedawcy (kolumny A-C)
-      sheet.cell(CellIndex.indexByString('A1')).value = TextCellValue('Różycki GLASS');
-      sheet.cell(CellIndex.indexByString('A2')).value = TextCellValue('Grzegorz Różycki');
-      sheet.cell(CellIndex.indexByString('A3')).value = TextCellValue('Stare Miasto 515');
-      sheet.cell(CellIndex.indexByString('A4')).value = TextCellValue('37-300 Leżajsk');
-      sheet.cell(CellIndex.indexByString('A5')).value = TextCellValue('tel. 604 595 378');
+      // Dane sprzedawcy (kolumny A-C) - używamy danych z formularza
+      sheet.cell(CellIndex.indexByString('A1')).value = TextCellValue(companyData.sellerName);
+      sheet.cell(CellIndex.indexByString('A2')).value = TextCellValue(companyData.sellerOwner);
+      sheet.cell(CellIndex.indexByString('A3')).value = TextCellValue(companyData.sellerAddress);
+      sheet.cell(CellIndex.indexByString('A4')).value = TextCellValue(companyData.sellerCity);
+      sheet.cell(CellIndex.indexByString('A5')).value = TextCellValue(companyData.sellerPhone);
 
-      // Dane klienta (kolumny D-E)
-      sheet.cell(CellIndex.indexByString('D1')).value = TextCellValue('HARTOWNIA');
-      sheet.cell(CellIndex.indexByString('D2')).value = TextCellValue('SZKŁA ul.');
-      sheet.cell(CellIndex.indexByString('D3')).value = TextCellValue('Budowlana 2');
-      sheet.cell(CellIndex.indexByString('D4')).value = TextCellValue('08-500 Ryki');
+      // Dane klienta (kolumny D-E) - używamy danych z formularza
+      sheet.cell(CellIndex.indexByString('D1')).value = TextCellValue(companyData.clientCompany);
+      sheet.cell(CellIndex.indexByString('D2')).value = TextCellValue(companyData.clientStreet);
+      sheet.cell(CellIndex.indexByString('D3')).value = TextCellValue(companyData.clientStreetName);
+      sheet.cell(CellIndex.indexByString('D4')).value = TextCellValue(companyData.clientCityCode);
       sheet.cell(CellIndex.indexByString('D6')).value = TextCellValue(companyData.clientName);
 
       // Dane dokumentu (kolumny F-I)
@@ -911,8 +1061,8 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
       sheet.cell(CellIndex.indexByString('G3')).value = TextCellValue('wydanie');
       sheet.cell(CellIndex.indexByString('G4')).value = TextCellValue('zewnętrzne');
 
-      // Wiersz 8 - Opis usługi
-      sheet.cell(CellIndex.indexByString('A8')).value = TextCellValue('Różycki glass - usługa ${companyData.serviceType.toLowerCase()}');
+      // Wiersz 8 - Opis usługi - używamy nazwy firmy z formularza
+      sheet.cell(CellIndex.indexByString('A8')).value = TextCellValue('${companyData.sellerName} - usługa ${companyData.serviceType.toLowerCase()}');
 
       // TABELA GŁÓWNA - zaczynamy od wiersza 10
       final int headerRow = 9; // wiersz 10 w Excelu (0-based)
@@ -1182,28 +1332,33 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
             children: [
               pw.TableRow(
                 children: [
-                  // Statyczne dane Różycki GLASS
+                  // Dynamiczne dane sprzedawcy (Twoja firma)
                   pw.Container(
                     padding: const pw.EdgeInsets.all(6),
                     child: pw.Column(
                       crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
-                        pw.Text('Różycki GLASS', style: pw.TextStyle(font: ttf, fontWeight: pw.FontWeight.bold, fontSize: 11)),
-                        pw.Text('Grzegorz Różycki', style: pw.TextStyle(font: ttf, fontSize: 10)),
-                        pw.Text('Stare Miasto 515', style: pw.TextStyle(font: ttf, fontSize: 10)),
-                        pw.Text('37-300 Leżajsk', style: pw.TextStyle(font: ttf, fontSize: 10)),
-                        pw.Text('tel. 604 595 378', style: pw.TextStyle(font: ttf, fontSize: 10)),
+                        pw.Text(companyData.sellerName, style: pw.TextStyle(font: ttf, fontWeight: pw.FontWeight.bold, fontSize: 11)),
+                        pw.Text(companyData.sellerOwner, style: pw.TextStyle(font: ttf, fontSize: 10)),
+                        pw.Text(companyData.sellerAddress, style: pw.TextStyle(font: ttf, fontSize: 10)),
+                        pw.Text(companyData.sellerCity, style: pw.TextStyle(font: ttf, fontSize: 10)),
+                        pw.Text(companyData.sellerPhone, style: pw.TextStyle(font: ttf, fontSize: 10)),
                       ],
                     ),
                   ),
                   // Dynamiczne dane firmy klienta
                   pw.Container(
                     padding: const pw.EdgeInsets.all(6),
-                    child: pw.Text(
-                      companyData.clientName.isNotEmpty
-                          ? companyData.clientName
-                          : 'Firma klienta',
-                      style: pw.TextStyle(font: ttf, fontWeight: pw.FontWeight.bold, fontSize: 11),
+                    child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        pw.Text(companyData.clientCompany, style: pw.TextStyle(font: ttf, fontWeight: pw.FontWeight.bold, fontSize: 11)),
+                        pw.Text(companyData.clientStreet, style: pw.TextStyle(font: ttf, fontSize: 10)),
+                        pw.Text(companyData.clientStreetName, style: pw.TextStyle(font: ttf, fontSize: 10)),
+                        pw.Text(companyData.clientCityCode, style: pw.TextStyle(font: ttf, fontSize: 10)),
+                        if (companyData.clientName.isNotEmpty)
+                          pw.Text(companyData.clientName, style: pw.TextStyle(font: ttf, fontSize: 10)),
+                      ],
                     ),
                   ),
                   pw.Container(
@@ -1240,7 +1395,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
             ],
           ),
           pw.SizedBox(height: 8),
-          pw.Text('Różycki glass - usługa hartownia', style: pw.TextStyle(font: ttf, fontWeight: pw.FontWeight.bold, fontSize: 11)),
+          pw.Text('${companyData.sellerName} - usługa ${companyData.serviceType.toLowerCase()}', style: pw.TextStyle(font: ttf, fontWeight: pw.FontWeight.bold, fontSize: 11)),
           pw.SizedBox(height: 8),
 
           // Tabela główna
