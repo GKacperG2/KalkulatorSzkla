@@ -1,6 +1,3 @@
-**README.md** – *Gotowy, czytelny i gotowy do zamieszczenia w repozytorium*
-
-````markdown
 <div align="center">
 
 # 🪟 Glass Calculator & Shipment Manager
@@ -15,7 +12,7 @@ _Professional desktop application for glass‑industry logistics_
 
 **Developed by:**  
 <a href="https://github.com/GKacperG2"><img src="https://img.shields.io/badge/Kacper%20Gorzkiewicz-✏️-blue?style=for-the-badge" /></a>
-<a href="https://github.com/GKacperG2"><img src="https://img.shields.io/badge/Pawe%C5%82%20Ga%C5%82usza-✏️-blue?style=for-the-badge" /></a>
+<a href="https://github.com/GKacperG2"><img src="https://img.shields.io/badge/Paweł%20Gałusza-✏️-blue?style=for-the-badge" /></a>
 
 _3rd‑year Computer Science students_
 
@@ -51,7 +48,7 @@ _3rd‑year Computer Science students_
 ## 🎯 About the Project
 
 **Glass Calculator** is a cross‑platform desktop application created for **Różycki GLASS**.  
-It automates the calculation of glass‑transport parameters, generates professional PDF and Excel reports, and stores all data locally, making it **100 % offline‑first**.
+It automates the calculation of glass‑transport parameters, generates professional PDF and Excel reports, and stores all data locally, making it **100% offline‑first**.
 
 The project serves as a **portfolio piece** that demonstrates:
 
@@ -104,14 +101,14 @@ The project serves as a **portfolio piece** that demonstrates:
 ### Installation
 
 ```bash
-# 1️⃣ Clone the repository
+# Clone the repository
 git clone https://github.com/GKacperG2/KalkulatorSzkla.git
 cd KalkulatorSzkla/kal2
 
-# 2️⃣ Install Dart/Flutter dependencies
+# Install Dart/Flutter dependencies
 flutter pub get
 
-# 3️⃣ Verify the Flutter setup
+# Verify the Flutter setup
 flutter doctor
 ```
 
@@ -151,10 +148,9 @@ The compiled executable can be found in `build/<platform>/.../Release/`.
 2. **Add glass items** – specify thickness (mm), length (mm), width (mm) and quantity. All calculations update instantly.
 3. **Configure company data** – fill seller and client information on the **„Dane"** tab.
 4. **Review the summary** – the **„Zestawienie"** tab groups items by thickness and shows totals (quantity, area, weight, cost).
-5. **Generate documents** – press **„Generuj PDF"** or **„Generuj Excel"**. Files are saved as  
-   `[ClientName]-[yyyyMMdd].[pdf|xlsx]` in the folder you selected in **„Ustawienia"**.
+5. **Generate documents** – press **„Generuj PDF"** or **„Generuj Excel"**. Files are saved as `[ClientName]-[yyyyMMdd].[pdf|xlsx]` in the folder you selected in **„Ustawienia"**.
 
-### Keyboard shortcuts (currently supported)
+### Keyboard shortcuts
 
 | Key                | Action                                |
 | ------------------ | ------------------------------------- |
@@ -194,7 +190,7 @@ kal2/
 
 ## 🔐 Security & Privacy
 
-- **100 % offline** – the app never contacts the internet.
+- **100% offline** – the app never contacts the internet.
 - **Local storage only** – all data is kept in the user's profile directory via `shared_preferences`.
 - **No analytics / telemetry** – nothing is sent to external services.
 - **User‑controlled exports** – you decide where PDFs/Excel files are saved.
@@ -220,23 +216,17 @@ Contributions are welcome! Follow these steps:
 
 1. **Fork** the repository
 2. **Create a feature branch**
-
    ```bash
    git checkout -b feature/awesome-feature
    ```
-
 3. **Commit** your changes
-
    ```bash
    git commit -m "Add awesome feature"
    ```
-
 4. **Push** the branch
-
    ```bash
    git push origin feature/awesome-feature
    ```
-
 5. **Open a Pull Request** on the original repo
 
 ### Guidelines
@@ -304,4 +294,3 @@ _Computer Science Students – 3rd Year_
 If you find this project useful, please give it a ⭐!
 
 </div>
-````
