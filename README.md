@@ -289,7 +289,7 @@ _Computer Science Students – 3rd Year_
 
 <div align="center">
 
-**Made with ❤️ by Computer Science Students**
+**Made with ❤️ by Computer Science Students **
 
 If you find this project useful, please give it a ⭐!
 
