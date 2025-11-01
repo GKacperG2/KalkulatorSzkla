@@ -682,10 +682,11 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
       _controllers[cellKey] = TextEditingController(text: value);
       _focusNodes[cellKey] = FocusNode();
     } else {
-      _controllers[cellKey]!.text = value;
+      // Tylko aktualizuj tekst jeśli rzeczywiście się zmienił
+      if (_controllers[cellKey]!.text != value) {
+        _controllers[cellKey]!.text = value;
+      }
     }
-    
-    _controllers[cellKey]!.selection = TextSelection.collapsed(offset: value.length);
     
     return RawKeyboardListener(
       focusNode: FocusNode(),
@@ -711,6 +712,13 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         keyboardType: TextInputType.number,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         onChanged: onChanged,
+        onTap: () {
+          // Gdy użytkownik kliknie na pole, zaznacz cały tekst
+          _controllers[cellKey]!.selection = TextSelection(
+            baseOffset: 0,
+            extentOffset: _controllers[cellKey]!.text.length,
+          );
+        },
         decoration: const InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(horizontal: 8),
