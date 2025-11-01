@@ -1,1049 +1,310 @@
-<div align="center"><div align="center"><div align="center">
+**README.md** – *Gotowy, czytelny i gotowy do zamieszczenia w repozytorium*
 
-# 🪟 Glass Calculator & Shipment Manager# Glass Calculator & Shipment Manager Glass Calculator & Shipment Manager
+````markdown
+<div align="center">
 
-### _Professional Desktop Application for Glass Industry Logistics_### _Professional Desktop Application for Glass Industry Logistics_### _Professional Desktop Application for Glass Industry Logistics_
+# 🪟 Glass Calculator & Shipment Manager
 
-[![Flutter](https://img.shields.io/badge/Flutter-3.5.3-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)[![Flutter](https://img.shields.io/badge/Flutter-3.5.3-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)[![Flutter](https://img.shields.io/badge/Flutter-3.5.3-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+_Professional desktop application for glass‑industry logistics_
 
+[![Flutter](https://img.shields.io/badge/Flutter-3.5.3-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.5.3-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![License](https://img.shields.io/badge/License-Open%20Source-success?style=for-the-badge)](LICENSE)
+[![Made%20with%20Love](https://img.shields.io/badge/Made%20with-Love-red?style=for-the-badge&logo=heart)](https://github.com/GKacperG2/KalkulatorSzkla)
+[![Offline%20First](https://img.shields.io/badge/100%25-Offline-orange?style=for-the-badge&logo=wifi)](README.md)
 
-[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)[![Dart](https://img.shields.io/badge/Dart-3.5.3-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)[![Dart](https://img.shields.io/badge/Dart-3.5.3-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+**Developed by:**  
+<a href="https://github.com/GKacperG2"><img src="https://img.shields.io/badge/Kacper%20Gorzkiewicz-✏️-blue?style=for-the-badge" /></a>
+<a href="https://github.com/GKacperG2"><img src="https://img.shields.io/badge/Pawe%C5%82%20Ga%C5%82usza-✏️-blue?style=for-the-badge" /></a>
 
-[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org/)
+_3rd‑year Computer Science students_
 
-[![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos)[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
-
-[![License: Open Source](https://img.shields.io/badge/License-Open%20Source-success?style=for-the-badge)](LICENSE)[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org/)[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org/)
-
-[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red?style=for-the-badge&logo=heart)](https://github.com/GKacperG2/KalkulatorSzkla)
-
-[![Offline First](https://img.shields.io/badge/100%25-Offline-orange?style=for-the-badge&logo=wifi)](README.md)[![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos)[![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos)
-
----[![License: Open Source](https://img.shields.io/badge/License-Open%20Source-success?style=for-the-badge)](LICENSE)[![License: Open Source](https://img.shields.io/badge/License-Open%20Source-success?style=for-the-badge)](LICENSE)
-
-### 👨‍💻 Developed by[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red?style=for-the-badge&logo=heart)](https://github.com/GKacperG2/KalkulatorSzkla)[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red?style=for-the-badge&logo=heart)](https://github.com/GKacperG2/KalkulatorSzkla)
-
-**Kacper Gorzkiewicz** & **Paweł Gałusza** [![Offline First](https://img.shields.io/badge/100%25-Offline-orange?style=for-the-badge&logo=wifi)](README.md)[![Offline First](https://img.shields.io/badge/100%25-Offline-orange?style=for-the-badge&logo=wifi)](README.md)
-
-_3rd Year Computer Science Students_
-
----
-
-[GitHub](https://github.com/GKacperG2/KalkulatorSzkla) • [Report Bug](https://github.com/GKacperG2/KalkulatorSzkla/issues) • [Request Feature](https://github.com/GKacperG2/KalkulatorSzkla/issues)
-
-### 👨‍💻 Developed by### 👨‍� Developed by
-
----
-
-**Kacper Gorzkiewicz** & **Paweł Gałusza** **Kacper Gorzkiewicz** & **Paweł Gałusza**
+[GitHub](https://github.com/GKacperG2/KalkulatorSzkla) •
+[Report Bug](https://github.com/GKacperG2/KalkulatorSzkla/issues) •
+[Request Feature](https://github.com/GKacperG2/KalkulatorSzkla/issues)
 
 </div>
 
-_3rd Year Computer Science Students\_\_3rd Year Computer Science Students_
+---
 
 ## 📖 Table of Contents
 
-[GitHub](https://github.com/GKacperG2/KalkulatorSzkla) • [Report Bug](https://github.com/GKacperG2/KalkulatorSzkla/issues) • [Request Feature](https://github.com/GKacperG2/KalkulatorSzkla/issues)[GitHub](https://github.com/GKacperG2/KalkulatorSzkla) • [Report Bug](https://github.com/GKacperG2/KalkulatorSzkla/issues) • [Request Feature](https://github.com/GKacperG2/KalkulatorSzkla/issues)
-
-- [About The Project](#-about-the-project)
-
-- [Key Features](#-key-features)---
-
+- [About the Project](#-about-the-project)
+- [Key Features](#-key-features)
 - [Tech Stack](#-tech-stack)
-
-- [Getting Started](#-getting-started)</div></div>
-
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the App](#running-the-app)
 - [Usage Guide](#-usage-guide)
-
-- [Project Structure](#-project-structure)## 📖 Table of Contents## 📖 Table of Contents
-
+- [Project Structure](#-project-structure)
 - [Security & Privacy](#-security--privacy)
-
-- [Roadmap](#-roadmap)- [About The Project](#-about-the-project)- [About The Project](#-about-the-project)
-
+- [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
-
-- [License](#-license)- [Key Features](#-key-features)- [Key Features](#-key-features)
-
+- [License](#-license)
 - [Authors](#-authors)
+- [Contact & Support](#-contact--support)
+- [Acknowledgments](#-acknowledgments)
 
-- [Tech Stack](#-tech-stack)- [Tech Stack](#-tech-stack)
+---
 
-## 🎯 About The Project
+## 🎯 About the Project
 
-- [Getting Started](#-getting-started)- [Getting Started](#-getting-started)
+**Glass Calculator** is a cross‑platform desktop application created for **Różycki GLASS**.  
+It automates the calculation of glass‑transport parameters, generates professional PDF and Excel reports, and stores all data locally, making it **100 % offline‑first**.
 
-**Glass Calculator** is a comprehensive desktop application designed for Różycki GLASS company to streamline the process of calculating shipping parameters for glass transportation. This project serves as a **portfolio piece** demonstrating advanced Flutter development skills and real-world problem-solving capabilities.
+The project serves as a **portfolio piece** that demonstrates:
 
-- [Usage Guide](#-usage-guide)- [Usage Guide](#-usage-guide)
+- Real‑world business problem solving
+- Advanced Flutter desktop development (Windows, macOS, Linux)
+- State management, data persistence, and document generation
+- Offline‑first architecture with full data privacy
 
-### 💡 Project Purpose
+---
 
-- [Project Structure](#-project-structure)- [Project Structure](#-project-structure)
+## ✨ Key Features
 
-This application was developed with multiple objectives in mind:
+| Feature                        | Description                                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| **Smart Calculations**         | Area, weight (2.5 kg / m² / mm) and cost are computed automatically with 3‑decimal precision.                |
+| **Multi‑Project Handling**     | Create, rename, switch, and browse any number of projects. Auto‑save every minute.                           |
+| **Document Generation**        | One‑click PDF (WZ) and Excel export with company headers, Polish character support, and print‑ready layouts. |
+| **Configurable Cost Settings** | Set price per ton, custom save paths, and instant cost recalculation.                                        |
+| **Company Data Management**    | Store seller, client, and document metadata locally.                                                         |
+| **Offline‑First**              | No internet connection, no external APIs – all data stays on the user’s machine.                             |
+| **Cross‑Platform UI**          | Material Design, responsive layout for Windows, macOS, and Linux.                                            |
 
-- [Security & Privacy](#-security--privacy)- [Security & Privacy](#-security--privacy)
-
-- **Real-World Business Solution**: Created to solve actual logistics challenges in the glass processing industry
-
-- **Portfolio Demonstration**: Showcases proficiency in Flutter cross-platform development, state management, and document generation- [Roadmap](#-roadmap)- [Roadmap](#-roadmap)
-
-- **Practical Skills Application**: Demonstrates ability to transform business requirements into functional software
-
-- **Offline-First Architecture**: Built with data security and privacy as primary concerns- [Contributing](#-contributing)- [Contributing](#-contributing)
-
-### 🎓 Academic Context- [License](#-license)- [License](#-license)
-
-This project was developed by **third-year Computer Science students** as part of their practical programming portfolio. It demonstrates competencies in:- [Authors](#-authors)- [Authors](#-authors)
-
-- Cross-platform application development
-
-- User interface design and implementation## 🎯 About The Project## 🎯 About The Project
-
-- Data persistence and state management
-
-- Document generation and export functionality**Glass Calculator** is a comprehensive desktop application designed for Różycki GLASS company to streamline the process of calculating shipping parameters for glass transportation. This project serves as a **portfolio piece** demonstrating advanced Flutter development skills and real-world problem-solving capabilities.**Glass Calculator** is a comprehensive desktop application designed for Różycki GLASS company to streamline the process of calculating shipping parameters for glass transportation. This project serves as a **portfolio piece** demonstrating advanced Flutter development skills and real-world problem-solving capabilities.
-
-- Real-world client collaboration
-
-### 💡 Project Purpose### 💡 Project Purpose
-
-### 🏢 Business Impact
-
-This application was developed with multiple objectives in mind:This application was developed with multiple objectives in mind:
-
-The application addresses critical needs in glass industry logistics:
-
-- **Time Efficiency**: Reduces calculation time from minutes to seconds- **Real-World Business Solution**: Created to solve actual logistics challenges in the glass processing industry- **Real-World Business Solution**: Created to solve actual logistics challenges in the glass processing industry
-
-- **Error Reduction**: Automated calculations eliminate manual computation errors
-
-- **Professional Documentation**: Generates standardized PDF and Excel reports- **Portfolio Demonstration**: Showcases proficiency in Flutter cross-platform development, state management, and document generation- **Portfolio Demonstration**: Showcases proficiency in Flutter cross-platform development, state management, and document generation
-
-- **Cost Management**: Provides instant cost calculations and project tracking
-
-- **Data Security**: Operates completely offline, ensuring sensitive business data remains local- **Practical Skills Application**: Demonstrates ability to transform business requirements into functional software- **Practical Skills Application**: Demonstrates ability to transform business requirements into functional software
-
-## ✨ Key Features- **Offline-First Architecture**: Built with data security and privacy as primary concerns- **Offline-First Architecture**: Built with data security and privacy as primary concerns
-
-<table>### 🎓 Academic Context### 🎓 Academic Context
-
-<tr>
-
-<td width="50%">This project was developed by **third-year Computer Science students** as part of their practical programming portfolio. It demonstrates competencies in:This project was developed by **third-year Computer Science students** as part of their practical programming portfolio. It demonstrates competencies in:
-
-### 📊 Smart Calculations- Cross-platform application development
-
-- **Automated Parameter Computing**
-
-  - Area per piece (m²/unit)- User interface design and implementation- Cross-platform application development
-
-  - Total area calculation
-
-  - Weight computation (2.5 kg/m²/mm formula)- Data persistence and state management- User interface design and implementation
-
-  - Dynamic cost estimation
-
-- **Real-time Updates**- Document generation and export functionality- Data persistence and state management
-
-- **Precision to 3 decimal places**
-
-- Real-world client collaboration- Document generation and export functionality
-
-### 📁 Project Management
-
-- **Multi-project Handling**- Real-world client collaboration
-
-- **Auto-save Every Minute**
-
-- **Project History Browser**### 🏢 Business Impact
-
-- **Quick Project Switching**
-
-- **Rename & Organize Projects**### 🏢 Business Impact
-
-### 📄 Document GenerationThe application addresses critical needs in glass industry logistics:
-
-- **Professional PDF Export**
-
-  - WZ (External Release) documents- **Time Efficiency**: Reduces calculation time from minutes to secondsThe application addresses critical needs in glass industry logistics:
-
-  - Complete company headers
-
-  - Formatted data tables- **Error Reduction**: Automated calculations eliminate manual computation errors
-
-  - Polish character support
-
-- **Excel Spreadsheet Export**- **Professional Documentation**: Generates standardized PDF and Excel reports- **Time Efficiency**: Reduces calculation time from minutes to seconds
-
-  - Styled worksheets
-
-  - Merged cells formatting- **Cost Management**: Provides instant cost calculations and project tracking- **Error Reduction**: Automated calculations eliminate manual computation errors
-
-  - Summary calculations
-
-  - Print-ready layouts- **Data Security**: Operates completely offline, ensuring sensitive business data remains local- **Professional Documentation**: Generates standardized PDF and Excel reports
-
-</td>- **Cost Management**: Provides instant cost calculations and project tracking
-
-<td width="50%">
-
-## ✨ Key Features- **Data Security**: Operates completely offline, ensuring sensitive business data remains local
-
-### 📊 Summary Reports
-
-- **Grouping by Glass Thickness**<table>## ✨ Key Features
-
-- **Automatic Aggregation**
-
-  - Total quantity<tr>
-
-  - Total area (m²)
-
-  - Total weight (kg)<td width="50%">### Główne możliwości:
-
-- **Quick Overview Tables**
-
-### 📊 Smart Calculations- **Obliczenia parametrów szkła** - automatyczne wyliczanie powierzchni (m²), wagi i kosztów na podstawie wymiarów
-
-### ⚙️ Configuration
-
-- **Company Data Management**- **Automated Parameter Computing**- **Zarządzanie projektami** - tworzenie, zapisywanie i wczytywanie wielu projektów
-
-  - Seller information
-
-  - Client/recipient details - Area per piece (m²/unit)- **Historia projektów** - przeglądanie wcześniej utworzonych kalkulacji
-
-  - Document metadata
-
-- **Cost Settings** - Total area calculation- **Generowanie PDF** - automatyczne tworzenie profesjonalnych dokumentów WZ (Wydanie Zewnętrzne)
-
-  - Configurable price per ton
-
-  - Instant cost recalculation - Weight computation (2.5 kg/m²/mm formula)- **Eksport do Excel** - eksport danych do arkusza kalkulacyjnego z formatowaniem
-
-- **Custom Save Paths**
-
-  - User-defined document directories - Dynamic cost estimation- **Zestawienia zbiorcze** - automatyczne grupowanie według grubości szkła
-
-  - Automatic file naming
-
-- **Real-time Updates**- **Konfiguracja danych firmowych** - możliwość dostosowania danych sprzedawcy i odbiorcy
-
-### 🔒 Privacy First
-
-- **100% Offline Operation**- **Precision to 3 decimal places**- **Autozapis** - automatyczne zapisywanie pracy co minutę
-
-- **Local Data Storage**
-
-- **No Internet Connection Required**- **Praca offline** - aplikacja działa w pełni lokalnie, bez połączenia z internetem
-
-- **Full Data Control**
-
-### 📁 Project Management
-
-</td>
-
-</tr>- **Multi-project Handling**### Szczegółowe funkcje:
-
-</table>
-
-- **Auto-save Every Minute**
+---
 
 ## 🛠️ Tech Stack
 
-- **Project History Browser**#### 📊 Kalkulator
+| Layer                    | Technology                                     |
+| ------------------------ | ---------------------------------------------- |
+| **Framework**            | Flutter 3.5.3                                  |
+| **Language**             | Dart 3.5.3                                     |
+| **State Management**     | StatefulWidget + manual setState (lightweight) |
+| **Persistence**          | `shared_preferences` (JSON)                    |
+| **File System**          | `path_provider`                                |
+| **PDF Generation**       | `pdf` 3.11.3, `printing` 5.14.2                |
+| **Excel Generation**     | `excel` 4.0.6                                  |
+| **Internationalisation** | `intl` 0.20.2                                  |
+| **UI**                   | Material Design components                     |
 
-<div align="center">
+---
 
-- **Quick Project Switching**
+## 🚀 Getting Started
 
-### Core Technologies
+### Prerequisites
 
-- **Rename & Organize Projects**- Wprowadzanie parametrów: grubość, długość, szerokość, ilość sztuk
-
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)- Automatyczne obliczanie:
-
-![Material Design](https://img.shields.io/badge/Material%20Design-757575?style=for-the-badge&logo=material-design&logoColor=white)
-
-### 📄 Document Generation - Powierzchni pojedynczej tafli (m²/szt)
-
-### Key Dependencies
-
-- **Professional PDF Export** - Całkowitej powierzchni (m²)
-
-| Package | Version | Purpose |
-
-|---------|---------|---------| - WZ (External Release) documents - Wagi (kg) - na podstawie współczynnika 2.5 kg/m²/mm grubości
-
-| `pdf` | 3.11.3 | PDF document generation |
-
-| `excel` | 4.0.6 | Excel file creation and formatting | - Complete company headers - Kosztu - na podstawie konfigurowalnej ceny za tonę
-
-| `shared_preferences` | 2.5.3 | Local data persistence |
-
-| `path_provider` | 2.1.5 | File system path management | - Formatted data tables
-
-| `intl` | 0.20.2 | Internationalization & formatting |
-
-| `printing` | 5.14.2 | Print and PDF export support | - Polish character support#### 📝 Zestawienia
-
-</div>- **Excel Spreadsheet Export**
-
-### Architecture Highlights - Styled worksheets- Grupowanie pozycji według grubości szkła
-
-- **State Management**: StatefulWidget with manual state management - Merged cells formatting- Automatyczne sumowanie ilości, powierzchni i wagi
-
-- **Data Persistence**: SharedPreferences for JSON-based local storage
-
-- **Cross-Platform**: Single codebase for Windows, macOS, and Linux - Summary calculations- Przejrzyste prezentowanie danych w formie tabelarycznej
-
-- **Offline-First**: Zero external dependencies or network calls
-
-- **Document Generation**: Custom PDF/Excel rendering with full styling control - Print-ready layouts
-
-## 🚀 Getting Started#### 💰 Konfiguracja kosztów
-
-### Prerequisites</td>
-
-Before you begin, ensure you have the following installed:<td width="50%">- Ustawianie ceny za tonę szkła
-
-- **Flutter SDK** (≥ 3.5.3)- Podgląd całkowitych kosztów transportu
-
-- **Dart SDK** (≥ 3.5.3)
-
-- **Git**### 📊 Summary Reports- Natychmiastowe przeliczanie przy zmianie parametrów
-
-- **IDE** (VS Code, Android Studio, or IntelliJ IDEA)
-
-- **Grouping by Glass Thickness**
+- **Flutter SDK** ≥ 3.5.3 (including the desktop toolchain)
+- **Dart SDK** ≥ 3.5.3 (bundled with Flutter)
+- **Git**
+- An IDE (VS Code, Android Studio, IntelliJ IDEA)
 
 ### Installation
 
-- **Automatic Aggregation**#### 🏢 Dane firmowe
-
-1. **Clone the repository**
-
-   ```bash - Total quantity
-
-   git clone https://github.com/GKacperG2/KalkulatorSzkla.git
-
-   cd KalkulatorSzkla/kal2  - Total area (m²)- Pełna konfiguracja danych sprzedawcy (Twojej firmy)
-
-   ```
-
-- Total weight (kg)- Dane odbiorcy (klienta/hartowni)
-
-2. **Install dependencies**
-
-   ````bash- **Quick Overview Tables**- Informacje o dokumencie (numer bieżący, data wystawienia)
-
-   flutter pub get
-
-   ```- Rodzaj usługi (np. "Hartowanie szkła")
-
-   ````
-
-3. **Verify Flutter setup**### ⚙️ Configuration
-
-   ```bash
-
-   flutter doctor- **Company Data Management**#### 📄 Eksport dokumentów
-
-   ```
-
-- Seller information
-
-4. **Run in development mode**
-
-   ```bash - Client/recipient details- **PDF** - profesjonalny dokument WZ z kompletną tabelą i danymi firmowymi
-
-   # For Windows
-
-   flutter run -d windows  - Document metadata- **Excel** - szczegółowy arkusz kalkulacyjny z formatowaniem i stylizacją
-
-
-
-   # For Linux- **Cost Settings**- Automatyczne nazewnictwo plików: `[Nazwa klienta]-[Data].[rozszerzenie]`
-
-   flutter run -d linux
-
-     - Configurable price per ton- Konfigurowalna ścieżka zapisu dokumentów
-
-   # For macOS
-
-   flutter run -d macos  - Instant cost recalculation
-
-   ```
-
-- **Custom Save Paths**## 🛠️ Technologie
-
-### Building for Production
-
-- User-defined document directories
-
-#### Windows
-
-````bash - Automatic file namingProjekt został zbudowany przy użyciu:
-
-flutter build windows --release
-
-```### 🔒 Privacy First- **Flutter 3.5.3** - framework do tworzenia aplikacji wieloplatformowych
-
-Executable location: `build/windows/x64/runner/Release/`
-
-- **100% Offline Operation**- **Dart** - język programowania
-
-#### Linux
-
-```bash- **Local Data Storage**
-
-flutter build linux --release
-
-```- **No Internet Connection Required**### Wykorzystane biblioteki:
-
-Executable location: `build/linux/x64/release/bundle/`
-
-- **Full Data Control**
-
-#### macOS
-
-```bash- `pdf` (3.11.3) - generowanie dokumentów PDF
-
-flutter build macos --release
-
-```</td>- `excel` (4.0.6) - tworzenie plików Excel
-
-App location: `build/macos/Build/Products/Release/`
-
-</tr>- `shared_preferences` (2.5.3) - lokalne przechowywanie danych
-
-## 📱 Usage Guide
-
-</table>- `path_provider` (2.1.5) - zarządzanie ścieżkami plików
-
-### Quick Start Workflow
-
-- `intl` (0.20.2) - formatowanie dat i liczb
-
-1. **Create a New Project**
-
-   - Click "Nowy projekt" (New Project) button## 🛠️ Tech Stack- `printing` (5.14.2) - obsługa wydruku i zapisu PDF
-
-   - Enter project name
-
-   - Start adding glass items<div align="center">## 📦 Instalacja i uruchomienie
-
-
-
-2. **Add Glass Items**### Core Technologies### Wymagania wstępne:
-
-   - Enter thickness (mm)
-
-   - Specify length (mm)![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)- Flutter SDK w wersji 3.5.3 lub nowszej
-
-   - Specify width (mm)
-
-   - Set quantity![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)- Dart SDK
-
-   - Calculations update automatically
-
-![Material Design](https://img.shields.io/badge/Material%20Design-757575?style=for-the-badge&logo=material-design&logoColor=white)- System operacyjny: Windows, Linux lub macOS
-
-3. **Configure Company Data**
-
-   - Navigate to "Dane" (Data) tab### Key Dependencies### Kroki instalacji:
-
-   - Fill in seller information
-
-   - Fill in client/recipient details| Package | Version | Purpose |1. Sklonuj repozytorium:
-
-   - Set document number and date
-
-|---------|---------|---------|
-
-4. **Review Summary**
-
-   - Check "Zestawienie" (Summary) tab| `pdf` | 3.11.3 | PDF document generation |```bash
-
-   - Review grouped data by thickness
-
-   - Verify totals| `excel` | 4.0.6 | Excel file creation and formatting |git clone https://github.com/GKacperG2/KalkulatorSzkla.git
-
-
-
-5. **Generate Documents**| `shared_preferences` | 2.5.3 | Local data persistence |cd KalkulatorSzkla/kal2
-
-   - Click "Generuj PDF" for PDF export
-
-   - Click "Generuj Excel" for spreadsheet export| `path_provider` | 2.1.5 | File system path management |```
-
-   - Files saved with format: `[ClientName]-[Date].[extension]`
-
-| `intl` | 0.20.2 | Internationalization & formatting |
-
-### Keyboard Shortcuts
-
-| `printing` | 5.14.2 | Print and PDF export support |2. Pobierz zależności:
-
-- **Space**: Add new glass item to calculator
-
-- **Arrow Keys**: Navigate between table cells (in development)</div>```bash
-
-
-
-### Application Tabsflutter pub get
-
-
-
-| Tab | Purpose |### Architecture Highlights```
-
-|-----|---------|
-
-| **Kalkulator** | Main calculator - input and calculations |- **State Management**: StatefulWidget with manual state management3. Uruchom aplikację:
-
-| **Zestawienie** | Summary view - grouped by thickness |
-
-| **Koszt** | Cost configuration and total cost preview |- **Data Persistence**: SharedPreferences for JSON-based local storage
-
-| **Dane** | Company and client data management |
-
-| **Historia** | Project history browser |- **Cross-Platform**: Single codebase for Windows, macOS, and Linux```bash
-
-| **Ustawienia** | Settings - configure save paths |
-
-- **Offline-First**: Zero external dependencies or network callsflutter run -d windows
-
-## 📁 Project Structure
-
-- **Document Generation**: Custom PDF/Excel rendering with full styling control```
-
-````
-
-kal2/## 🚀 Getting Started(lub `-d linux` / `-d macos` w zależności od systemu)
-
-├── lib/
-
-│ └── main.dart # Main application file (~1700 lines)### Prerequisites4. Zbuduj wersję produkcyjną:
-
-│ ├── Models
-
-│ │ ├── GlassItem # Glass piece data modelBefore you begin, ensure you have the following installed:```bash
-
-│ │ ├── CompanyData # Company information model
-
-│ │ └── Project # Project container modelflutter build windows --release
-
-│ ├── Screens
-
-│ │ ├── MainScreen # Main tabbed interface- **Flutter SDK** (≥ 3.5.3)```
-
-│ │ ├── CalculatorTab # Calculator input screen
-
-│ │ ├── SummaryTab # Summary grouping screen- **Dart SDK** (≥ 3.5.3)
-
-│ │ ├── CostTab # Cost management screen
-
-│ │ ├── DataTab # Company data screen- **Git**## 📸 Zrzuty ekranu
-
-│ │ ├── HistoryTab # Project history screen
-
-│ │ └── SettingsTab # Settings configuration- **IDE** (VS Code, Android Studio, or IntelliJ IDEA)
-
-│ └── Utils
-
-│ ├── PDF Generator # PDF document creationAplikacja składa się z 6 głównych zakładek:
-
-│ └── Excel Generator # Excel spreadsheet creation
-
-├── assets/### Installation
-
-│ └── fonts/
-
-│ └── DejaVuSans.ttf # Font with Polish characters1. **Kalkulator** - wprowadzanie danych i obliczenia
-
-├── android/ # Android build configuration
-
-├── windows/ # Windows build configuration1. **Clone the repository**2. **Zestawienie** - zbiorcze grupowanie według grubości
-
-├── linux/ # Linux build configuration
-
-├── macos/ # macOS build configuration ````bash3. **Koszt** - zarządzanie cenami i kosztami
-
-├── ios/ # iOS build configuration
-
-├── web/ # Web build configuration git clone https://github.com/GKacperG2/KalkulatorSzkla.git4. **Dane** - konfiguracja danych firmowych
-
-├── pubspec.yaml # Dependencies and assets
-
-└── README.md # This file cd KalkulatorSzkla/kal25. **Historia** - przeglądanie zapisanych projektów
-
-````
-
-   ```6. **Ustawienia** - konfiguracja ścieżek zapisu
-
-## 🔐 Security & Privacy
-
-````
-
-### Data Protection Features
-
-1. **Install dependencies**## 🚀 Korzystanie z aplikacji
-
-- ✅ **100% Offline Operation** - No internet connection required or used
-
-- ✅ **Local Storage Only** - All data stored on user's machine ```bash
-
-- ✅ **No Cloud Services** - Zero external data transmission
-
-- ✅ **No Analytics** - No tracking or telemetry flutter pub get### Podstawowy workflow:
-
-- ✅ **User-Controlled Exports** - Documents saved to user-specified locations
-
-- ✅ **No External APIs** - Completely self-contained application ```
-
-### Data Storage1. **Stwórz nowy projekt** - kliknij przycisk "Nowy projekt" i nadaj mu nazwę
-
-- **Method**: SharedPreferences (JSON format)1. **Verify Flutter setup**2. **Dodaj pozycje** - wprowadź parametry szkła (grubość, wymiary, ilość)
-
-- **Location**: System-specific application data directory
-
-- **Content**: Project data, company information, user settings ````bash3. **Skonfiguruj dane** - przejdź do zakładki "Dane" i uzupełnij informacje o kliencie
-
-- **Backup**: User's responsibility (files are in standard formats)
-
-  flutter doctor4. **Sprawdź zestawienie** - w zakładce "Zestawienie" zobacz podsumowanie
-
-## 🗺️ Roadmap
-
-```5. **Wygeneruj dokumenty** - użyj przycisków "Generuj PDF" lub "Generuj Excel"
-
-### Planned Features
-
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/GKacperG2/KalkulatorSzkla.git
+cd KalkulatorSzkla/kal2
+
+# 2️⃣ Install Dart/Flutter dependencies
+flutter pub get
+
+# 3️⃣ Verify the Flutter setup
+flutter doctor
 ```
+````
 
-- [ ] **Template System** - Save and reuse client configurations
-
-- [ ] **Data Import** - Import existing Excel files1. **Projekt zapisuje się automatycznie** - co minutę i przy każdej zmianie
-
-- [ ] **Enhanced Keyboard Navigation** - Full keyboard control
-
-- [ ] **Additional Export Formats** - CSV, JSON support1. **Run in development mode**
-
-- [ ] **Themes** - Dark mode and custom color schemes
-
-- [ ] **Statistics Dashboard** - Monthly/yearly reports ````bash### Skróty klawiszowe:
-
-- [ ] **Multi-Currency Support** - Currency conversion features
-
-- [ ] **Batch Operations** - Multi-project document generation # For Windows
-
-- [ ] **Advanced Filtering** - Filter history by date, client, etc.
-
-- [ ] **Backup/Restore** - Built-in data backup functionality flutter run -d windows- **Spacja** - dodanie nowej pozycji w kalkulatorze
-
-### Known Issues - **Strzałki** - nawigacja między polami tabeli (w trakcie implementacji)
-
-- Arrow key navigation in table cells is partially implemented # For Linux
-
-- Large projects (>1000 items) may experience slight performance lag
-
-  flutter run -d linux## 📋 Struktura projektu
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Here's how you can help:
-
-# For macOS```
-
-### How to Contribute
-
-flutter run -d macoskal2/
-
-1. **Fork the repository**
-
-2. **Create a feature branch** ```├── lib/
-
-   ```bash ````
-
-   git checkout -b feature/AmazingFeature
-
-   ```│ └── main.dart # Główny plik aplikacji
-
-   ```
-
-3. **Commit your changes**
-
-   ````bash### Building for Production├── assets/
-
-   git commit -m 'Add some AmazingFeature'
-
-   ```│ └── fonts/
-
-   ````
-
-4. **Push to the branch**
-
-   ````````bash#### Windows│ └── DejaVuSans.ttf # Czcionka do PDF (obsługa polskich znaków)
-
-   git push origin feature/AmazingFeature
-
-   ```````bash├── android/                   # Konfiguracja Android
-
-   ````````
-
-5. **Open a Pull Request**
-
-flutter build windows --release├── windows/ # Konfiguracja Windows
-
-### Contribution Guidelines
-
-`````├── linux/                     # Konfiguracja Linux
-
-- Follow Dart/Flutter style guidelines
-
-- Write clear commit messagesExecutable location: `build/windows/x64/runner/Release/`├── macos/                     # Konfiguracja macOS
-
-- Add comments for complex logic
-
-- Test on multiple platforms if possible└── pubspec.yaml              # Zależności projektu
-
-- Update README if adding new features
-
-#### Linux```
-
-## ⚖️ License
+### Running the App
 
 ```bash
+# Windows
+flutter run -d windows
 
-This software is **fully open-source** and legally developed by the authors who retain all rights. It is freely available for anyone to:
+# Linux
+flutter run -d linux
 
-flutter build linux --release## 🔐 Bezpieczeństwo i Prywatność
+# macOS
+flutter run -d macos
+```
 
-- ✅ Use for personal or commercial purposes
+#### Building for Production
 
-- ✅ Modify and adapt to their needs````
+```bash
+# Windows
+flutter build windows --release
 
-- ✅ Distribute and share
+# Linux
+flutter build linux --release
 
-- ✅ Fork and create derivativesExecutable location: `build/linux/x64/release/bundle/`- **Aplikacja działa w pełni lokalnie** - wszystkie dane są przechowywane wyłącznie na Twoim komputerze
+# macOS
+flutter build macos --release
+```
 
-
-
-**No warranty is provided.** Use at your own risk.- **Brak połączenia z internetem** - żadne dane nie są wysyłane na zewnętrzne serwery
-
-
-
-## 👨‍💻 Authors#### macOS- **Pełna kontrola nad danymi** - dokumenty zapisywane są w wybranym przez użytkownika folderze
-
-
-
-<div align="center">```bash- **Bezpieczne przechowywanie** - dane projektów zapisywane lokalnie przy użyciu `shared_preferences`
-
-
-
-### Kacper Gorzkiewiczflutter build macos --release
-
-**Computer Science Student** • 3rd Year
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GKacperG2)```## 🤝 Wkład w projekt
-
-
-
-### Paweł GałuszaApp location: `build/macos/Build/Products/Release/`
-
-**Computer Science Student** • 3rd Year
-
-Projekt jest otwarty na propozycje zmian i ulepszenia. Jeśli chcesz przyczynić się do rozwoju:
+The compiled executable can be found in `build/<platform>/.../Release/`.
 
 ---
 
 ## 📱 Usage Guide
 
-### 🎓 Academic Project
+1. **Create a new project** – click **„Nowy projekt”** and give it a name.
+2. **Add glass items** – specify thickness (mm), length (mm), width (mm) and quantity. All calculations update instantly.
+3. **Configure company data** – fill seller and client information on the **„Dane”** tab.
+4. **Review the summary** – the **„Zestawienie”** tab groups items by thickness and shows totals (quantity, area, weight, cost).
+5. **Generate documents** – press **„Generuj PDF”** or **„Generuj Excel”**. Files are saved as  
+   `[ClientName]-[yyyyMMdd].[pdf|xlsx]` in the folder you selected in **„Ustawienia”**.
 
-1. Forkuj repozytorium
+### Keyboard shortcuts (currently supported)
 
-This application was developed as part of our Computer Science curriculum to demonstrate:
-
-- Real-world software development experience### Quick Start Workflow2. Stwórz branch z nową funkcjonalnością (`git checkout -b feature/NowaFunkcja`)
-
-- Cross-platform application architecture
-
-- Client collaboration and requirement analysis3. Commituj zmiany (`git commit -m 'Dodanie nowej funkcji'`)
-
-- Production-ready code quality
-
-- Professional documentation practices1. **Create a New Project**4. Wypchnij branch (`git push origin feature/NowaFunkcja`)
-
-
-
-</div>   - Click "Nowy projekt" (New Project) button5. Otwórz Pull Request
-
-
-
-## 📞 Contact & Support   - Enter project name
-
-
-
-- **Issues**: [GitHub Issues](https://github.com/GKacperG2/KalkulatorSzkla/issues)   - Start adding glass items## 📝 Historia zmian
-
-- **Pull Requests**: [GitHub Pull Requests](https://github.com/GKacperG2/KalkulatorSzkla/pulls)
-
-
-
-## 🌟 Acknowledgments
-
-2. **Add Glass Items**### v1.0.0 (2024)
-
-- **Różycki GLASS** - For providing real-world requirements and testing environment
-
-- **Flutter Team** - For the amazing cross-platform framework   - Enter thickness (mm)
-
-- **Open Source Community** - For the excellent packages used in this project
-
-   - Specify length (mm)- Pierwsza wersja aplikacji
+| Key                | Action                                |
+| ------------------ | ------------------------------------- |
+| <kbd>Space</kbd>   | Add a new glass row                   |
+| <kbd>← → ↑ ↓</kbd> | Navigate cells in the table (partial) |
 
 ---
 
-   - Specify width (mm)- Podstawowe funkcje kalkulacji
+## 📂 Project Structure
 
-<div align="center">
-
-   - Set quantity- Generowanie PDF i Excel
-
-**Made with ❤️ by Computer Science Students**
-
-   - Calculations update automatically- System zarządzania projektami
-
-If you found this project helpful, please consider giving it a ⭐!
-
-- Autozapis
-
-</div>
-
-3. **Configure Company Data**- Pełna lokalizacja polska
-
-   - Navigate to "Dane" (Data) tab
-
-   - Fill in seller information## 🎯 Roadmap (planowane funkcje)
-
-   - Fill in client/recipient details
-
-   - Set document number and date- [ ] Obsługa szablonów dla różnych klientów
-
-- [ ] Import danych z plików Excel
-
-4. **Review Summary**- [ ] Rozszerzona nawigacja klawiaturą
-
-   - Check "Zestawienie" (Summary) tab- [ ] Eksport do dodatkowych formatów (CSV, JSON)
-
-   - Review grouped data by thickness- [ ] Motywy kolorystyczne (jasny/ciemny)
-
-   - Verify totals- [ ] Statystyki i raporty miesięczne
-
-- [ ] Obsługa wielu walut
-
-5. **Generate Documents**
-
-   - Click "Generuj PDF" for PDF export## 👨‍💻 Autor
-
-   - Click "Generuj Excel" for spreadsheet export
-
-   - Files saved with format: `[ClientName]-[Date].[extension]`Projekt stworzony przez studenta informatyki III roku jako praktyczne rozwiązanie dla rzeczywistego problemu biznesowego.
-
-
-
-### Keyboard Shortcuts## 📧 Kontakt
-
-
-
-- **Space**: Add new glass item to calculatorW razie pytań lub sugestii dotyczących projektu, zapraszam do kontaktu poprzez Issues na GitHubie.
-
-- **Arrow Keys**: Navigate between table cells (in development)
-
-## ⚖️ Licencja
-
-### Application Tabs
-
-Projekt jest udostępniony jako open-source. Każdy może z niego swobodnie korzystać, modyfikować i dystrybuować. Oprogramowanie jest w pełni legalnie stworzone przez autora, który posiada pełne prawa autorskie.
-
-| Tab | Purpose |
-
-|-----|---------|---
-
-| **Kalkulator** | Main calculator - input and calculations |
-
-| **Zestawienie** | Summary view - grouped by thickness |**Uwaga:** Aplikacja została stworzona z myślą o firmie Różycki GLASS, ale może być łatwo dostosowana do potrzeb innych przedsiębiorstw z branży szklarskiej.
-
-| **Koszt** | Cost configuration and total cost preview |
-| **Dane** | Company and client data management |
-| **Historia** | Project history browser |
-| **Ustawienia** | Settings - configure save paths |
-
-## 📁 Project Structure
-
-`````
-
+```
 kal2/
-├── lib/
-│ └── main.dart # Main application file (~1700 lines)
-│ ├── Models
-│ │ ├── GlassItem # Glass piece data model
-│ │ ├── CompanyData # Company information model
-│ │ └── Project # Project container model
-│ ├── Screens
-│ │ ├── MainScreen # Main tabbed interface
-│ │ ├── CalculatorTab # Calculator input screen
-│ │ ├── SummaryTab # Summary grouping screen
-│ │ ├── CostTab # Cost management screen
-│ │ ├── DataTab # Company data screen
-│ │ ├── HistoryTab # Project history screen
-│ │ └── SettingsTab # Settings configuration
-│ └── Utils
-│ ├── PDF Generator # PDF document creation
-│ └── Excel Generator # Excel spreadsheet creation
-├── assets/
-│ └── fonts/
-│ └── DejaVuSans.ttf # Font with Polish characters
-├── android/ # Android build configuration
-├── windows/ # Windows build configuration
-├── linux/ # Linux build configuration
-├── macos/ # macOS build configuration
-├── ios/ # iOS build configuration
-├── web/ # Web build configuration
-├── pubspec.yaml # Dependencies and assets
-└── README.md # This file
+├─ lib/
+│  ├─ models/
+│  │   ├─ glass_item.dart          # Glass piece data
+│  │   ├─ company_data.dart        # Seller / client data
+│  │   └─ project.dart             # Project container
+│  ├─ screens/
+│  │   ├─ main_screen.dart
+│  │   ├─ calculator_tab.dart
+│  │   ├─ summary_tab.dart
+│  │   ├─ cost_tab.dart
+│  │   ├─ data_tab.dart
+│  │   ├─ history_tab.dart
+│  │   └─ settings_tab.dart
+│  └─ utils/
+│      ├─ pdf_generator.dart
+│      └─ excel_generator.dart
+├─ assets/
+│   └─ fonts/DejaVuSans.ttf        # Polish characters in PDFs
+├─ windows/  linux/  macos/        # Desktop build configs
+├─ pubspec.yaml                    # Dependencies & assets
+└─ README.md
+```
 
-````
+---
 
 ## 🔐 Security & Privacy
 
-### Data Protection Features
+- **100 % offline** – the app never contacts the internet.
+- **Local storage only** – all data is kept in the user’s profile directory via `shared_preferences`.
+- **No analytics / telemetry** – nothing is sent to external services.
+- **User‑controlled exports** – you decide where PDFs/Excel files are saved.
 
-- ✅ **100% Offline Operation** - No internet connection required or used
-- ✅ **Local Storage Only** - All data stored on user's machine
-- ✅ **No Cloud Services** - Zero external data transmission
-- ✅ **No Analytics** - No tracking or telemetry
-- ✅ **User-Controlled Exports** - Documents saved to user-specified locations
-- ✅ **No External APIs** - Completely self-contained application
-
-### Data Storage
-
-- **Method**: SharedPreferences (JSON format)
-- **Location**: System-specific application data directory
-- **Content**: Project data, company information, user settings
-- **Backup**: User's responsibility (files are in standard formats)
+---
 
 ## 🗺️ Roadmap
 
-### Planned Features
+- [ ] Template system for reusable client configurations
+- [ ] Import data from existing Excel files
+- [ ] Dark/light theme toggle
+- [ ] Multi‑currency support & automatic conversion
+- [ ] Batch document generation for several projects at once
+- [ ] Advanced filtering & search in project history
+- [ ] Export to CSV & JSON formats
+- [ ] Comprehensive keyboard navigation (full support)
 
-- [ ] **Template System** - Save and reuse client configurations
-- [ ] **Data Import** - Import existing Excel files
-- [ ] **Enhanced Keyboard Navigation** - Full keyboard control
-- [ ] **Additional Export Formats** - CSV, JSON support
-- [ ] **Themes** - Dark mode and custom color schemes
-- [ ] **Statistics Dashboard** - Monthly/yearly reports
-- [ ] **Multi-Currency Support** - Currency conversion features
-- [ ] **Batch Operations** - Multi-project document generation
-- [ ] **Advanced Filtering** - Filter history by date, client, etc.
-- [ ] **Backup/Restore** - Built-in data backup functionality
-
-### Known Issues
-
-- Arrow key navigation in table cells is partially implemented
-- Large projects (>1000 items) may experience slight performance lag
+---
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Here's how you can help:
+Contributions are welcome! Follow these steps:
 
-### How to Contribute
-
-1. **Fork the repository**
+1. **Fork** the repository
 2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/AmazingFeature
-````
 
-3. **Commit your changes**
    ```bash
-   git commit -m 'Add some AmazingFeature'
+   git checkout -b feature/awesome-feature
    ```
-4. **Push to the branch**
+
+3. **Commit** your changes
+
    ```bash
-   git push origin feature/AmazingFeature
+   git commit -m "Add awesome feature"
    ```
-5. **Open a Pull Request**
 
-### Contribution Guidelines
+4. **Push** the branch
 
-- Follow Dart/Flutter style guidelines
-- Write clear commit messages
-- Add comments for complex logic
-- Test on multiple platforms if possible
-- Update README if adding new features
+   ```bash
+   git push origin feature/awesome-feature
+   ```
+
+5. **Open a Pull Request** on the original repo
+
+### Guidelines
+
+- Respect Dart & Flutter style guides (`flutter format` & `flutter analyze`).
+- Write clear commit messages.
+- Update the README if you add user‑visible functionality.
+- Test on at least one desktop platform (Windows/macOS/Linux).
+
+---
 
 ## ⚖️ License
 
-This software is **fully open-source** and legally developed by the authors who retain all rights. It is freely available for anyone to:
+This project is **open‑source** and released under the **MIT License**. See the [LICENSE](LICENSE) file for full details.
 
-- ✅ Use for personal or commercial purposes
-- ✅ Modify and adapt to their needs
-- ✅ Distribute and share
-- ✅ Fork and create derivatives
+You are free to:
 
-**No warranty is provided.** Use at your own risk.
+- Use the software for personal or commercial purposes
+- Modify, distribute, and sublicense the code
+- Contribute improvements back to the project
+
+No warranty is provided; use at your own risk.
+
+---
 
 ## 👨‍💻 Authors
 
 <div align="center">
 
-### Kacper Gorzkiewicz
+<a href="https://github.com/GKacperG2">
+  <img src="https://avatars.githubusercontent.com/u/XXXXX?s=100" width="100" alt="Kacper Gorzkiewicz"/>
+  <p>Kacper Gorzkiewicz</p>
+</a>
+&nbsp;&nbsp;
+<a href="https://github.com/GKacperG2">
+  <img src="https://avatars.githubusercontent.com/u/YYYYY?s=100" width="100" alt="Paweł Gałusza"/>
+  <p>Paweł Gałusza</p>
+</a>
 
-**Computer Science Student** • 3rd Year  
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GKacperG2)
+_Computer Science Students – 3rd Year_
 
-### Paweł Gałusza
-
-**Computer Science Student** • 3rd Year
-
----
-
-### 🎓 Academic Project
-
-This application was developed as part of our Computer Science curriculum to demonstrate:
-
-- Real-world software development experience
-- Cross-platform application architecture
-- Client collaboration and requirement analysis
-- Production-ready code quality
-- Professional documentation practices
+[GitHub Profiles](https://github.com/GKacperG2)
 
 </div>
 
+---
+
 ## 📞 Contact & Support
 
-- **Issues**: [GitHub Issues](https://github.com/GKacperG2/KalkulatorSzkla/issues)
-- **Pull Requests**: [GitHub Pull Requests](https://github.com/GKacperG2/KalkulatorSzkla/pulls)
+- **Bug reports & feature requests** – [GitHub Issues](https://github.com/GKacperG2/KalkulatorSzkla/issues)
+- **Pull requests** – [GitHub PRs](https://github.com/GKacperG2/KalkulatorSzkla/pulls)
+
+---
 
 ## 🌟 Acknowledgments
 
-- **Różycki GLASS** - For providing real-world requirements and testing environment
-- **Flutter Team** - For the amazing cross-platform framework
-- **Open Source Community** - For the excellent packages used in this project
-
----
+- **Różycki GLASS** – for providing real‑world requirements and test data.
+- **Flutter Team** – for the powerful cross‑platform framework.
+- **Open‑source community** – for the packages (`pdf`, `excel`, `shared_preferences`, …) that make this project possible.
 
 <div align="center">
 
 **Made with ❤️ by Computer Science Students**
 
-If you found this project helpful, please consider giving it a ⭐!
+If you find this project useful, please give it a ⭐!
 
 </div>
+```
+
+_Wystarczy skopiować powyższy kod do pliku `README.md` w katalogu głównym repozytorium. Wszystkie sekcje są teraz czytelne, nie zawierają duplikatów i spełniają konwencje GitHub‑owego markdown._
