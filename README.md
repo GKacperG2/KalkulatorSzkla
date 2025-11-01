@@ -50,8 +50,8 @@ _3rd‑year Computer Science students_
 
 ## 🎯 About the Project
 
-**Glass Calculator** is a cross‑platform desktop application created for **Różycki GLASS**.  
-It automates the calculation of glass‑transport parameters, generates professional PDF and Excel reports, and stores all data locally, making it **100 % offline‑first**.
+**Glass Calculator** is a cross‑platform desktop application created for **Różycki GLASS**.  
+It automates the calculation of glass‑transport parameters, generates professional PDF and Excel reports, and stores all data locally, making it **100 % offline‑first**.
 
 The project serves as a **portfolio piece** that demonstrates:
 
@@ -66,12 +66,12 @@ The project serves as a **portfolio piece** that demonstrates:
 
 | Feature                        | Description                                                                                                  |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| **Smart Calculations**         | Area, weight (2.5 kg / m² / mm) and cost are computed automatically with 3‑decimal precision.                |
+| **Smart Calculations**         | Area, weight (2.5 kg / m² / mm) and cost are computed automatically with 3‑decimal precision.                |
 | **Multi‑Project Handling**     | Create, rename, switch, and browse any number of projects. Auto‑save every minute.                           |
 | **Document Generation**        | One‑click PDF (WZ) and Excel export with company headers, Polish character support, and print‑ready layouts. |
 | **Configurable Cost Settings** | Set price per ton, custom save paths, and instant cost recalculation.                                        |
 | **Company Data Management**    | Store seller, client, and document metadata locally.                                                         |
-| **Offline‑First**              | No internet connection, no external APIs – all data stays on the user’s machine.                             |
+| **Offline‑First**              | No internet connection, no external APIs – all data stays on the user's machine.                             |
 | **Cross‑Platform UI**          | Material Design, responsive layout for Windows, macOS, and Linux.                                            |
 
 ---
@@ -80,14 +80,14 @@ The project serves as a **portfolio piece** that demonstrates:
 
 | Layer                    | Technology                                     |
 | ------------------------ | ---------------------------------------------- |
-| **Framework**            | Flutter 3.5.3                                  |
-| **Language**             | Dart 3.5.3                                     |
+| **Framework**            | Flutter 3.5.3                                  |
+| **Language**             | Dart 3.5.3                                     |
 | **State Management**     | StatefulWidget + manual setState (lightweight) |
 | **Persistence**          | `shared_preferences` (JSON)                    |
 | **File System**          | `path_provider`                                |
-| **PDF Generation**       | `pdf` 3.11.3, `printing` 5.14.2                |
-| **Excel Generation**     | `excel` 4.0.6                                  |
-| **Internationalisation** | `intl` 0.20.2                                  |
+| **PDF Generation**       | `pdf` 3.11.3, `printing` 5.14.2                |
+| **Excel Generation**     | `excel` 4.0.6                                  |
+| **Internationalisation** | `intl` 0.20.2                                  |
 | **UI**                   | Material Design components                     |
 
 ---
@@ -96,10 +96,10 @@ The project serves as a **portfolio piece** that demonstrates:
 
 ### Prerequisites
 
-- **Flutter SDK** ≥ 3.5.3 (including the desktop toolchain)
-- **Dart SDK** ≥ 3.5.3 (bundled with Flutter)
+- **Flutter SDK** ≥ 3.5.3 (including the desktop toolchain)
+- **Dart SDK** ≥ 3.5.3 (bundled with Flutter)
 - **Git**
-- An IDE (VS Code, Android Studio, IntelliJ IDEA)
+- An IDE (VS Code, Android Studio, IntelliJ IDEA)
 
 ### Installation
 
@@ -114,7 +114,6 @@ flutter pub get
 # 3️⃣ Verify the Flutter setup
 flutter doctor
 ```
-````
 
 ### Running the App
 
@@ -148,12 +147,12 @@ The compiled executable can be found in `build/<platform>/.../Release/`.
 
 ## 📱 Usage Guide
 
-1. **Create a new project** – click **„Nowy projekt”** and give it a name.
+1. **Create a new project** – click **„Nowy projekt"** and give it a name.
 2. **Add glass items** – specify thickness (mm), length (mm), width (mm) and quantity. All calculations update instantly.
-3. **Configure company data** – fill seller and client information on the **„Dane”** tab.
-4. **Review the summary** – the **„Zestawienie”** tab groups items by thickness and shows totals (quantity, area, weight, cost).
-5. **Generate documents** – press **„Generuj PDF”** or **„Generuj Excel”**. Files are saved as  
-   `[ClientName]-[yyyyMMdd].[pdf|xlsx]` in the folder you selected in **„Ustawienia”**.
+3. **Configure company data** – fill seller and client information on the **„Dane"** tab.
+4. **Review the summary** – the **„Zestawienie"** tab groups items by thickness and shows totals (quantity, area, weight, cost).
+5. **Generate documents** – press **„Generuj PDF"** or **„Generuj Excel"**. Files are saved as  
+   `[ClientName]-[yyyyMMdd].[pdf|xlsx]` in the folder you selected in **„Ustawienia"**.
 
 ### Keyboard shortcuts (currently supported)
 
@@ -195,8 +194,8 @@ kal2/
 
 ## 🔐 Security & Privacy
 
-- **100 % offline** – the app never contacts the internet.
-- **Local storage only** – all data is kept in the user’s profile directory via `shared_preferences`.
+- **100 % offline** – the app never contacts the internet.
+- **Local storage only** – all data is kept in the user's profile directory via `shared_preferences`.
 - **No analytics / telemetry** – nothing is sent to external services.
 - **User‑controlled exports** – you decide where PDFs/Excel files are saved.
 
@@ -287,14 +286,14 @@ _Computer Science Students – 3rd Year_
 
 ## 📞 Contact & Support
 
-- **Bug reports & feature requests** – [GitHub Issues](https://github.com/GKacperG2/KalkulatorSzkla/issues)
-- **Pull requests** – [GitHub PRs](https://github.com/GKacperG2/KalkulatorSzkla/pulls)
+- **Bug reports & feature requests** – [GitHub Issues](https://github.com/GKacperG2/KalkulatorSzkla/issues)
+- **Pull requests** – [GitHub PRs](https://github.com/GKacperG2/KalkulatorSzkla/pulls)
 
 ---
 
 ## 🌟 Acknowledgments
 
-- **Różycki GLASS** – for providing real‑world requirements and test data.
+- **Różycki GLASS** – for providing real‑world requirements and test data.
 - **Flutter Team** – for the powerful cross‑platform framework.
 - **Open‑source community** – for the packages (`pdf`, `excel`, `shared_preferences`, …) that make this project possible.
 
@@ -305,6 +304,4 @@ _Computer Science Students – 3rd Year_
 If you find this project useful, please give it a ⭐!
 
 </div>
-```
-
-_Wystarczy skopiować powyższy kod do pliku `README.md` w katalogu głównym repozytorium. Wszystkie sekcje są teraz czytelne, nie zawierają duplikatów i spełniają konwencje GitHub‑owego markdown._
+````
