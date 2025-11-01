@@ -12,7 +12,7 @@ _Professional desktop application for glass‑industry logistics_
 
 **Developed by:**  
 <a href="https://github.com/GKacperG2"><img src="https://img.shields.io/badge/Kacper%20Gorzkiewicz-✏️-blue?style=for-the-badge" /></a>
-<a href="https://github.com/GKacperG2"><img src="https://img.shields.io/badge/Paweł%20Gałusza-✏️-blue?style=for-the-badge" /></a>
+<a href="https://github.com/PawelG1"><img src="https://img.shields.io/badge/Paweł%20Gałusza-✏️-blue?style=for-the-badge" /></a>
 
 _3rd‑year Computer Science students_
 
